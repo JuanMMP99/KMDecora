@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo | KM Decora</title>
+  <meta name="description" content="Explora todo el catálogo de KM Decora: desayunos, pasteles, flores, gelatinas, mesas de dulces y accesorios personalizados.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="site-header"></header>
+
+  <!-- ── PAGE HERO ──────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-text">
+        <p class="eyebrow">🛍️ Todo en un solo lugar</p>
+        <h1>Nuestro <span>Catálogo</span></h1>
+        <p>Encuentra el regalo perfecto. Filtra por categoría o busca lo que necesitas. ¡Cada producto puede personalizarse!</p>
+      </div>
+      <div class="page-hero-emojis">🎁🌸🎂🍬</div>
+    </div>
+  </div>
+
+  <!-- ── FILTROS ─────────────────────────────────────── -->
+  <div class="filter-strip">
+    <div class="filter-inner">
+      <div class="filter-cats" id="filter-cats">
+        <button class="filter-btn active" data-cat="todos">✨ Todos</button>
+        <button class="filter-btn" data-cat="desayunos">🍳 Desayunos</button>
+        <button class="filter-btn" data-cat="reposteria">🎂 Repostería</button>
+        <button class="filter-btn" data-cat="flores">🌸 Flores</button>
+        <button class="filter-btn" data-cat="mesas">🍬 Mesas</button>
+        <button class="filter-btn" data-cat="accesorios">🎁 Accesorios</button>
+      </div>
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="search-input" placeholder="Buscar..." aria-label="Buscar productos">
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GRID CATÁLOGO ──────────────────────────────── -->
+  <section class="catalog-container">
+    <div class="container" style="padding-top:40px;">
+      <div class="catalog-grid" id="catalog-grid"></div>
+      <div class="no-results" id="no-results">
+        <div class="no-emoji">😕</div>
+        <h3>No encontramos productos</h3>
+        <p style="color:var(--gray);margin-top:8px;">Intenta con otra búsqueda o categoría.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────── -->
+  <section style="background:linear-gradient(135deg,var(--soft),rgba(168,237,234,0.2));padding:64px 5%;text-align:center;">
+    <h3 style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:12px;" class="reveal">
+      ¿No encontraste lo que buscas?
+    </h3>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:28px;" class="reveal reveal-delay-1">
+      ¡Tenemos más productos! Escríbenos y creamos algo completamente personalizado para ti.
+    </p>
+    <a href="https://wa.me/521234567890?text=Hola%20KM%20Decora%2C%20busco%20algo%20especial%20que%20no%20encontré%20en%20el%20catálogo"
+       target="_blank" rel="noopener"
+       class="btn btn-coral reveal reveal-delay-2">
+      💬 Pregúntanos por WhatsApp
+    </a>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="productos.js"></script>
+  <script src="components.js"></script>
+  <script>
+    renderHeader('catalogo.html');
+    renderFooter();
+    renderWhatsApp();
+    initScrollReveal();
+    ProductModal.build();
+    Cart.buildPanel();
+
+    // ── Estado actual ──
+    let currentCat    = 'todos';
+    let currentSearch = '';
+
+    // ── Leer parámetro de URL (desde links de categorías en index) ──
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramCat  = urlParams.get('cat');
+    if (paramCat) {
+      currentCat = paramCat;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.cat === currentCat);
+      });
+    }
+
+    // ── Renderizar grid ──
+    function renderGrid() {
+      const grid = document.getElementById('catalog-grid');
+      const noResults = document.getElementById('no-results');
+
+      // Obtener productos base por categoría
+      let productos = getProductosByCategoria(currentCat);
+
+      // Aplicar búsqueda
+      if (currentSearch.trim()) {
+        const q = currentSearch.toLowerCase().trim();
+        productos = productos.filter(p =>
+          p.nombre.toLowerCase().includes(q) ||
+          p.descripcion.toLowerCase().includes(q) ||
+          (p.tags && p.tags.some(t => t.includes(q)))
+        );
+      }
+
+      if (!productos.length) {
+        grid.innerHTML = '';
+        noResults.style.display = 'block';
+        return;
+      }
+      noResults.style.display = 'none';
+      grid.innerHTML = productos.map(p => renderProductCard(p)).join('');
+
+      // Re-activar scroll reveal para las nuevas tarjetas
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('visible'); }
+          });
+        }, { threshold: 0.05 }).observe(el);
+      });
+    }
+
+    // ── Filtros ──
+    document.getElementById('filter-cats').addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      currentCat = btn.dataset.cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid();
+    });
+
+    // ── Búsqueda en tiempo real ──
+    let searchTimeout;
+    document.getElementById('search-input').addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        currentSearch = e.target.value;
+        renderGrid();
+      }, 300);
+    });
+
+    // Render inicial
+    renderGrid();
+  </script>
+</body>
+</html>

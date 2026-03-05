@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería | KM Decora</title>
+  <meta name="description" content="Galería de trabajos realizados por KM Decora: desayunos sorpresa, pasteles, flores, mesas de dulces y más.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="site-header"></header>
+
+  <!-- ── PAGE HERO ──────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-text">
+        <p class="eyebrow">📸 Trabajos Realizados</p>
+        <h1>Nuestra <span>Galería</span></h1>
+        <p>Cada foto es un pedido real, una sorpresa real y una sonrisa real. ¡Inspírate y cuéntanos qué quieres para tu ocasión especial!</p>
+      </div>
+      <div class="page-hero-emojis">📸✨🎉🌟</div>
+    </div>
+  </div>
+
+  <!-- ── FILTROS DE GALERÍA ─────────────────────────── -->
+  <div class="filter-strip">
+    <div class="filter-inner">
+      <div class="filter-cats" id="gallery-filters">
+        <button class="filter-btn active" data-gcat="todos">✨ Todos</button>
+        <button class="filter-btn" data-gcat="desayunos">🍳 Desayunos</button>
+        <button class="filter-btn" data-gcat="reposteria">🎂 Repostería</button>
+        <button class="filter-btn" data-gcat="flores">🌸 Flores</button>
+        <button class="filter-btn" data-gcat="mesas">🍬 Mesas</button>
+        <button class="filter-btn" data-gcat="accesorios">🎁 Accesorios</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GALERÍA MOSAICO ────────────────────────────── -->
+  <section style="background:var(--cream);">
+    <div class="container">
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────── -->
+  <section style="background:var(--mint);color:white;padding:64px 5%;text-align:center;">
+    <h3 style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:12px;" class="reveal">
+      ¿Te gustó lo que viste? 😍
+    </h3>
+    <p style="opacity:0.9;font-size:0.92rem;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;" class="reveal reveal-delay-1">
+      Cada pedido en nuestra galería fue creado especialmente para alguien. El tuyo puede ser el próximo. ¡Escríbenos!
+    </p>
+    <a href="https://wa.me/521234567890?text=Hola%20KM%20Decora!%20Vi%20su%20galería%20y%20quiero%20hacer%20un%20pedido%20🎁"
+       target="_blank" rel="noopener"
+       class="btn btn-white reveal reveal-delay-2">
+      💬 ¡Quiero mi pedido!
+    </a>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="productos.js"></script>
+  <script src="components.js"></script>
+  <script>
+    renderHeader('galeria.html');
+    renderFooter();
+    renderWhatsApp();
+    initScrollReveal();
+    Lightbox.build();
+
+    // Galería: reúne todas las fotos de todos los productos
+    const galeriaItems = [];
+    KM_PRODUCTOS.forEach(p => {
+      p.fotos.forEach(foto => {
+        galeriaItems.push({
+          src: foto,
+          caption: p.nombre,
+          cat: p.categoria
+        });
+      });
+    });
+
+    let currentGCat = 'todos';
+
+    function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      const items = currentGCat === 'todos'
+        ? galeriaItems
+        : galeriaItems.filter(i => i.cat === currentGCat);
+
+      grid.innerHTML = items.map((item, idx) => `
+        <div class="gallery-item reveal" data-gidx="${idx}" data-cat="${item.cat}">
+          <img
+            src="${item.src}"
+            alt="${item.caption}"
+            loading="lazy"
+            onerror="this.parentElement.style.background='var(--soft)';this.style.display='none'"
+          >
+          <div class="gallery-item-overlay">🔍</div>
+        </div>
+      `).join('');
+
+      // Click en item → lightbox con el subconjunto filtrado
+      grid.querySelectorAll('.gallery-item').forEach((el, i) => {
+        el.addEventListener('click', () => {
+          const visibleItems = items;
+          Lightbox.open(visibleItems.map(x => ({ src: x.src, caption: x.caption })), i);
+        });
+      });
+
+      // Re-init reveal
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('visible');
+          });
+        }, { threshold: 0.05 }).observe(el);
+      });
+    }
+
+    document.getElementById('gallery-filters').addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      currentGCat = btn.dataset.gcat;
+      document.querySelectorAll('#gallery-filters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGallery();
+    });
+
+    renderGallery();
+  </script>
+</body>
+</html>
