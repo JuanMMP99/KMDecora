@@ -120,13 +120,13 @@ function renderWelcomeModal() {
   overlay.innerHTML = `
     <div class="welcome-modal" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
       <div class="modal-icon">🎁</div>
-      <h2 id="welcome-title">¡Bienvenida a <span>KM Decora</span>!</h2>
+      <h2 id="welcome-title">¡Bienvenido a <span>KM Decora</span>!</h2>
       <p>Tu tienda de regalos y sorpresas favorita. Aquí encontrarás desayunos, pasteles, flores, accesorios personalizados y mucho más para hacer especial cada momento.</p>
       <div class="highlight">
         <p>⏰ <span>Pedido con anticipación:</span> Si quieres que tu pedido sea <strong>igual al de la imagen</strong>, debes realizarlo con <strong>mínimo 1 día de anticipación</strong>. Los tiempos pueden variar según el producto.</p>
       </div>
       <button class="btn btn-coral" id="welcome-accept-btn">
-        🎉 ¡Entendido, a explorar!
+         ¡Entendido, a explorar!
       </button>
     </div>
   `;
