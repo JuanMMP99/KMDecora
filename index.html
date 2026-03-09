@@ -38,18 +38,6 @@
     </div>
     <div class="hero-visual">
       <div class="hero-img"></div>
-      <div class="hero-badge">
-        <div class="badge-icon">🌸</div>
-        <div class="badge-text">
-          <strong>Flores Frescas</strong>
-          <span>Siempre disponibles</span>
-        </div>
-      </div>
-      <div class="hero-badge2">
-        <div class="b2-icon">🎂</div>
-        <strong>Pasteles</strong>
-        <span>Artesanales</span>
-      </div>
     </div>
   </section>
 
@@ -175,8 +163,8 @@
     Lightbox.build();
     Cart.buildPanel();
 
-    // Mostrar 6 productos destacados (2 de cada categoría principal)
-    const featured = ['da-001','pg-001','fl-001','md-001','ac-001','pg-002'];
+    // Mostrar 6 productos destacados (mix de desayunos reales + otras categorías)
+    const featured = ['ID2', 'ID4', 'ID6', 'pg-001', 'fl-001', 'ac-001'];
     const grid = document.getElementById('featured-grid');
     if (grid) {
       grid.innerHTML = featured
