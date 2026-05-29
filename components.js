@@ -99,8 +99,8 @@ function renderFooter() {
       <div class="footer-col">
         <h4>Contacto</h4>
         <ul>
-          <li><a href="https://wa.me/521234567890" target="_blank" rel="noopener">📱 WhatsApp</a></li>
-          <li><a href="mailto:hola@kmdecora.mx">✉️ hola@kmdecora.mx</a></li>
+          <li><a href="https://wa.me/529516098781 " target="_blank" rel="noopener">📱 WhatsApp</a></li>
+          <li><a href="mailto:hola@kmdecora.mx">✉️ kmdecora.tu.fiesta@gmail.com </a></li>
           <li><a href="contacto.html">📍 Encuéntranos</a></li>
         </ul>
       </div>
@@ -123,7 +123,7 @@ function renderWelcomeModal() {
       <h2 id="welcome-title">¡Bienvenido a <span>KM Decora</span>!</h2>
       <p>Tu tienda de regalos y sorpresas favorita. Aquí encontrarás desayunos, pasteles, flores, accesorios personalizados y mucho más para hacer especial cada momento.</p>
       <div class="highlight">
-        <p>⏰ <span>Pedido con anticipación:</span> Si quieres que tu pedido sea <strong>igual al de la imagen</strong>, debes realizarlo con <strong>mínimo 1 día de anticipación</strong>. Los tiempos pueden variar según el producto.</p>
+        <p>⏰ <span>Pedido con anticipación:</span> Si quieres que tu pedido sea <strong>igual al de la imagen</strong>, debes realizarlo con <strong>mínimo 3 días de anticipación</strong>. Los tiempos pueden variar según el producto.</p>
       </div>
       <button class="btn btn-coral" id="welcome-accept-btn">
          ¡Entendido, a explorar!
@@ -156,7 +156,7 @@ function renderWelcomeModal() {
 
 /* ── 4. WHATSAPP FAB ───────────────────────────────────── */
 function renderWhatsApp(
-  phone = "521234567890",
+  phone = "529516098781",
   msg = "Hola KM Decora, quiero hacer un pedido 🎁",
 ) {
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
@@ -310,7 +310,7 @@ const ProductModal = (() => {
       const precioStr = p.precioTexto || `$${p.precio} MXN`;
       const msg = `Hola KM Decora! Me interesa: *${p.nombre}* (${precioStr}). ¿Tienes disponibilidad?`;
       window.open(
-        `https://wa.me/521234567890?text=${encodeURIComponent(msg)}`,
+        `https://wa.me/529516098781?text=${encodeURIComponent(msg)}`,
         "_blank",
       );
     };
@@ -480,7 +480,7 @@ const Cart = (() => {
       const text = getQuoteText();
       if (!text) return;
       window.open(
-        `https://wa.me/521234567890?text=${encodeURIComponent(text)}`,
+        `https://wa.me/529516098781?text=${encodeURIComponent(text)}`,
         "_blank",
       );
     });
