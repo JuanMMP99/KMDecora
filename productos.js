@@ -28,7 +28,7 @@ const KM_PRODUCTOS = [
 
   {
     id: "ID39",
-    categoria: "desayunos",
+    categoria: "canastas",
     nombre: "Canasta Grande",
     descripcion:
       "Canasta surtida con 1 kg de tasajo, costilla, cecina y chorizo, acompañada de guacamole, pasta de frijol y guarniciones tradicionales.",
@@ -58,7 +58,7 @@ const KM_PRODUCTOS = [
   },
   {
     id: "ID40",
-    categoria: "desayunos",
+    categoria: "canastas",
     nombre: "Canasta Mediana",
     descripcion:
       "Canasta surtida con medio kilo de tasajo, costilla, cecina y chorizo, acompañada de nopales, aguacate y guarniciones tradicionales.",
@@ -85,7 +85,7 @@ const KM_PRODUCTOS = [
   },
   {
     id: "ID41",
-    categoria: "desayunos",
+    categoria: "canastas",
     nombre: "Canasta Chica",
     descripcion:
       "Canasta práctica con 350 g de tasajo, costilla, cecina y chorizo, acompañada de cebollas y chiles de agua.",
@@ -117,8 +117,8 @@ const KM_PRODUCTOS = [
       "Hot cakes, fruta, cupcakes, gelatinas, fresas con crema, enchiladas verdes con tasajo, jugo, yogurt y canasta de carnes. ¡Un festín completo!",
     descripcionLarga:
       "Un desayuno que combina lo mejor de la cocina oaxaqueña con los postres más queridos. Incluye hot cakes, fruta fresca, 4 cupcakes, 2 gelatinas, fresas con crema, platillo de enchiladas verdes con tasajo, jugo natural, yogurt y canasta de carnes.",
-    precio: 850,
-    precioTexto: "$850 + envío",
+    precio: 1050,
+    precioTexto: "$1050 + envío",
     unidad: "paquete",
     disponible: true,
     anticipacion: "2 días",
@@ -170,8 +170,8 @@ const KM_PRODUCTOS = [
       "Hot cakes, fruta, 4 cupcakes, 2 gelatinas, pechuga empanizada con spaghetti, jugo, 2 yogurts y 2 frappes. ¡El más completo!",
     descripcionLarga:
       "El paquete más completo de la colección. Incluye hot cakes, fruta fresca, 4 cupcakes, 2 gelatinas, platillo de pechuga empanizada con spaghetti y verduras, jugo, 2 yogurts y 2 frappes helados.",
-    precio: 610,
-    precioTexto: "$610 + envío",
+    precio: 700,
+    precioTexto: "$700 + envío",
     unidad: "paquete",
     disponible: true,
     anticipacion: "2 días",
@@ -222,8 +222,8 @@ const KM_PRODUCTOS = [
       "Hot cakes, fruta, 2 cupcakes, 1 gelatina, pechuga con ensalada y verduras + salsa, jugo natural. Fresco y nutritivo.",
     descripcionLarga:
       "Una opción fresca y nutritiva. Incluye hot cakes, fruta fresca, 2 cupcakes, 1 gelatina y platillo de pechuga con ensalada y verduras acompañada de salsa, más jugo natural.",
-    precio: 360,
-    precioTexto: "$360 + envío",
+    precio: 500,
+    precioTexto: "$500 + envío",
     unidad: "paquete",
     disponible: true,
     anticipacion: "2 días",
@@ -350,6 +350,28 @@ const KM_PRODUCTOS = [
     ],
     tags: ["premium", "evento", "personalizado"],
   },
+  {
+    id: "pastel06",
+    categoria: "reposteria",
+    nombre: "Pastel",
+    descripcion:
+      "Pastel artesanal personalizado para cualquier celebración especial.",
+    descripcionLarga:
+      "Nuestros pasteles son elaborados de manera artesanal y pueden personalizarse según la temática, colores y detalles que desees. Disponibles desde tamaño mini para 10 personas hasta presentaciones para eventos de más de 400 personas. Los sabores, rellenos, decoraciones y frutas utilizadas están sujetas a disponibilidad de temporada. El precio final dependerá del tamaño, diseño y personalización solicitada.",
+    precio: 200,
+    precioTexto: "Desde $200 + envío",
+    unidad: "pastel",
+    disponible: true,
+    anticipacion: "2 días",
+    fotos: ["img/reposteria/pastel06.jpeg"],
+    incluye: [
+      "Pastel artesanal",
+      "Decoración personalizada",
+      "Diseño temático",
+      "Sabores a elegir",
+    ],
+    tags: ["pastel", "cumpleaños", "personalizado", "celebración"],
+  },
 
   {
     id: "gelatina01",
@@ -371,6 +393,114 @@ const KM_PRODUCTOS = [
       "Presentación lista para regalo",
     ],
     tags: ["gelatina", "postre", "artesanal"],
+  },
+
+  {
+    id: "gelatina02",
+    categoria: "reposteria",
+    nombre: "Gelatina Artística",
+    descripcion:
+      "Gelatina decorada artesanalmente, ideal para regalar o complementar cualquier celebración.",
+    descripcionLarga:
+      "Gelatina elaborada de forma artesanal con diseños decorativos únicos. Perfecta para cumpleaños, aniversarios, reuniones familiares y eventos especiales. Los colores, detalles y decoración pueden personalizarse según la ocasión.",
+    precio: 230,
+    precioTexto: "$230 + envío",
+    unidad: "gelatina",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/reposteria/gelatina02.jpeg"],
+    incluye: [
+      "Gelatina artesanal",
+      "Decoración personalizada",
+      "Presentación especial",
+    ],
+    tags: ["gelatina", "postre", "regalo", "personalizado"],
+  },
+  {
+    id: "gelatina03",
+    categoria: "reposteria",
+    nombre: "Gelatina Artística Premium",
+    descripcion:
+      "Gelatina decorada con detalles especiales para celebraciones importantes.",
+    descripcionLarga:
+      "Gelatina artesanal elaborada con diseños personalizados y acabados especiales. Ideal para cumpleaños, eventos familiares y ocasiones especiales. La decoración puede adaptarse a la temática solicitada.",
+    precio: 280,
+    precioTexto: "$280 + envío",
+    unidad: "gelatina",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/reposteria/gelatina03.jpeg"],
+    incluye: [
+      "Gelatina artesanal",
+      "Decoración especial",
+      "Diseño personalizado",
+    ],
+    tags: ["gelatina", "premium", "evento", "personalizado"],
+  },
+  {
+    id: "gelatina04",
+    categoria: "reposteria",
+    nombre: "Gelatina Decorativa",
+    descripcion:
+      "Gelatina artesanal con diseño especial para cualquier ocasión.",
+    descripcionLarga:
+      "Deliciosa gelatina decorada de forma artesanal, ideal para sorprender con un detalle diferente. Puede personalizarse en colores y presentación según la ocasión.",
+    precio: 280,
+    precioTexto: "$280 + envío",
+    unidad: "gelatina",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/reposteria/gelatina04.jpeg"],
+    incluye: [
+      "Gelatina artesanal",
+      "Decoración personalizada",
+      "Presentación especial",
+    ],
+    tags: ["gelatina", "decorativa", "regalo", "evento"],
+  },
+  {
+    id: "gelatina05",
+    categoria: "reposteria",
+    nombre: "Gelatina Personalizada",
+    descripcion: "Gelatina artesanal con detalles decorativos personalizados.",
+    descripcionLarga:
+      "Una opción perfecta para complementar cualquier celebración. Elaborada artesanalmente y decorada según la temática o estilo solicitado por el cliente.",
+    precio: 230,
+    precioTexto: "$230 + envío",
+    unidad: "gelatina",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/reposteria/gelatina05.jpeg"],
+    incluye: [
+      "Gelatina artesanal",
+      "Diseño personalizado",
+      "Decoración especial",
+    ],
+    tags: ["gelatina", "personalizada", "postre", "regalo"],
+  },
+  {
+    id: "gelatina06",
+    categoria: "reposteria",
+    nombre: "Gelatina con Ramo de Rosas y Chocolates",
+    descripcion:
+      "Paquete especial que combina una gelatina artesanal con un hermoso ramo de rosas y chocolates.",
+    descripcionLarga:
+      "La combinación perfecta para sorprender. Incluye una gelatina artesanal decorada, acompañada de un ramo de rosas con chocolates. Ideal para cumpleaños, aniversarios, agradecimientos o cualquier ocasión especial. Las flores están sujetas a disponibilidad de temporada.",
+    precio: 580,
+    precioTexto: "$580 + envío",
+    unidad: "paquete",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/reposteria/gelatina06.jpeg"],
+    incluye: [
+      "Ramo de rosas $400",
+      "Gelatina $180",
+      "Gelatina artesanal",
+      "Ramo de rosas",
+      "Chocolates",
+      "Decoración especial",
+    ],
+    tags: ["gelatina", "flores", "chocolates", "regalo", "sorpresa"],
   },
 
   // ────────────────────────────────────────────── // FLORES // ──────────────────────────────────────────────
@@ -519,7 +649,92 @@ const KM_PRODUCTOS = [
     ],
     tags: ["fresas", "chocolate", "ramo", "regalo"],
   },
-
+  {
+    id: "fl08",
+    categoria: "flores",
+    nombre: "Arreglo Floral Especial",
+    descripcion:
+      "Arreglo floral elegante elaborado con flores frescas y detalles decorativos especiales.",
+    descripcionLarga:
+      "Hermoso arreglo floral diseñado para sorprender en cualquier ocasión especial. Elaborado con flores frescas y decoración personalizada. Las flores utilizadas están sujetas a disponibilidad de temporada, garantizando siempre la mejor calidad y frescura.",
+    precio: 1000,
+    precioTexto: "$1000 + envío",
+    unidad: "arreglo",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/flores/fl08.jpeg"],
+    incluye: [
+      "Flores frescas de temporada",
+      "Decoración especial",
+      "Presentación personalizada",
+    ],
+    tags: ["flores", "arreglo", "especial", "regalo"],
+  },
+  {
+    id: "fl09",
+    categoria: "flores",
+    nombre: "Ramo de Rosas Rojas",
+    descripcion:
+      "Clásico ramo de rosas rojas frescas para expresar amor y admiración.",
+    descripcionLarga:
+      "Hermoso ramo elaborado con rosas rojas frescas y decoración especial. Ideal para aniversarios, cumpleaños, San Valentín o cualquier ocasión romántica. El costo final dependerá del tamaño del ramo y la cantidad de rosas seleccionadas.",
+    precio: 0,
+    precioTexto: "Precio según tamaño",
+    unidad: "ramo",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/flores/fl09.jpeg"],
+    incluye: [
+      "Rosas rojas frescas",
+      "Envoltura decorativa",
+      "Presentación especial",
+    ],
+    tags: ["rosas", "rojas", "ramo", "romántico"],
+  },
+  {
+    id: "fl10",
+    categoria: "flores",
+    nombre: "Ramo de Rosas con Billetes",
+    descripcion:
+      "Ramo personalizado que combina rosas frescas con billetes decorativos.",
+    descripcionLarga:
+      "Un detalle único y elegante que combina rosas frescas con billetes decorativos. Ideal para cumpleaños, graduaciones, aniversarios o celebraciones especiales. El diseño se adapta completamente al presupuesto y preferencias del cliente.",
+    precio: 0,
+    precioTexto: "Precio según presupuesto",
+    unidad: "ramo",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/flores/fl10.jpeg"],
+    incluye: [
+      "Rosas frescas",
+      "Billetes decorativos",
+      "Decoración personalizada",
+    ],
+    tags: ["rosas", "billetes", "personalizado", "regalo"],
+  },
+  {
+    id: "fl11",
+    categoria: "flores",
+    nombre: "Ramo de Rosas Rojas y Girasoles",
+    descripcion:
+      "Hermosa combinación de rosas rojas y girasoles frescos en un arreglo lleno de color.",
+    descripcionLarga:
+      "Un ramo elegante y llamativo elaborado con rosas rojas y girasoles frescos. Ideal para sorprender en cumpleaños, aniversarios o cualquier ocasión especial. Las flores están sujetas a disponibilidad de temporada.",
+    precio: 500,
+    precioTexto: "$500 + envío",
+    unidad: "ramo",
+    disponible: true,
+    anticipacion: "1 día",
+    fotos: ["img/flores/fl11.jpeg"],
+    incluye: [
+      "Rosas rojas",
+      "Girasoles frescos",
+      "Envoltura decorativa",
+      "Presentación especial",
+    ],
+    tags: ["rosas", "girasoles", "ramo", "flores"],
+  },
+  
   // ────────────────────────────────────────────── // MESAS DE DULCES // ──────────────────────────────────────────────
   {
     id: "mesa01",
@@ -598,6 +813,29 @@ const KM_PRODUCTOS = [
     ],
     tags: ["premium", "regalo", "accesorios", "personalizado"],
   },
+  {
+    id: "accesorio03",
+    categoria: "accesorios",
+    nombre: "Caja Corazón Personalizada",
+    descripcion:
+      "Caja en forma de corazón con rosas, chocolates y mensaje personalizado para sorprender en cualquier ocasión especial.",
+    descripcionLarga:
+      "Hermosa caja decorativa en forma de corazón elaborada con rosas rojas, chocolates y una frase personalizada. Ideal para aniversarios, cumpleaños, San Valentín o cualquier ocasión especial. Los colores, cantidad de flores, chocolates, mensajes y detalles pueden personalizarse según el gusto del cliente. Las flores están sujetas a disponibilidad de temporada y los artículos pueden variar según existencia.",
+    precio: 0,
+    precioTexto: "Precio según presupuesto",
+    unidad: "caja",
+    disponible: true,
+    anticipacion: "1 semana",
+    fotos: ["img/accesorios/accesorio03.jpeg"],
+    incluye: [
+      "Caja decorativa en forma de corazón",
+      "Rosas de temporada",
+      "Chocolates",
+      "Frase personalizada",
+      "Decoración especial",
+    ],
+    tags: ["corazón", "rosas", "chocolates", "personalizado", "romántico"],
+  },
 
   // ────────────────────────────────────────────── // TAZAS PERSONALIZADAS // ──────────────────────────────────────────────
   {
@@ -675,13 +913,13 @@ const KM_PRODUCTOS = [
   {
     id: "botana01",
     categoria: "botanas",
-    nombre: "Tabla Botanera",
+    nombre: "Charola botanera de 6 latones",
     descripcion:
       "Botana preparada con cervezas, fruta fresca, cacahuates y acompañamientos.",
     descripcionLarga:
       "Ideal para reuniones, cumpleaños o convivencias. Incluye 6 cervezas de lata Corona o Victoria, pepinos preparados, naranja, mango, sandía, jícama, zanahoria, cacahuates, gomitas, limones y banderillas de pulpa de tamarindo.",
-    precio: 500,
-    precioTexto: "$500 + envío",
+    precio: 380,
+    precioTexto: "$380 + envío",
     unidad: "tabla",
     disponible: true,
     anticipacion: "1 día",
@@ -704,7 +942,7 @@ const KM_PRODUCTOS = [
   {
     id: "botana02",
     categoria: "botanas",
-    nombre: "Tabla Botanera",
+    nombre: "Charola botanera de 4 latones",
     descripcion:
       "Botana preparada con cerveza, fruta fresca y acompañamientos especiales.",
     descripcionLarga:

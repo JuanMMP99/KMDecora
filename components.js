@@ -570,7 +570,7 @@ function categoriaNombre(cat) {
   const map = {
     desayunos: "Desayunos & Almuerzos",
     reposteria: "Pasteles & Gelatinas",
-    flores: "Flores & Decoración",
+    flores: "Flores",
     mesas: "Mesas de Dulces",
     accesorios: "Accesorios",
   };
